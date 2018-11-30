@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width">
 	<title>Index</title>
 </head>
+
 <body>
 <header class="site-header">
     <div class="container">		
@@ -31,22 +32,33 @@
 
 <div class="home-firstscreen">	
 <div class="container-slider">	
-	<div class="slider">
-	
+	<div class="slider">	
+
 			<div class="slid1">
+				<img class="hand" src="assets/img/hand.png">
+				<div class="h-t">
+
 				<div class="simple">Simple, Beautiful <b>and Amazing</b></div>
 				<div class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget nunc vitae tellus luctus ullamcorper. Nam porttitor ullamcorper felis at convallis. Aenean ornare vestibulum nisi fringilla lacinia. Nullam pulvinar sollicitudin velit id laoreet. Quisque non rhoncus sem.</div>
 				<input type="submit" id="sub" class="sub1" value="DOWNLOAD">
 				<input type="submit" id="sub" class="sub1 sub2" value="LEARN MORE" >
+
+				<div class="app_andr">
+					<a class="lorem">Aavailable on:</a>
+					<div class="apple" "></div>
+					<div class="android"></div>
+				</div>
+			</div>
 			</div>
 			<div class="app_andr">
-					<a class="lorem">Aavailable on:</a>
-					<img class="apple" src="assets/img/apple.png">
-					<img class="android" src="assets/img/android.png">
+				<div class="ggg">
+					<a class="lorem">Слайд 2</a>
+					
+				</div>
 			</div>
-        </div>            	
 	  </div>
 	</div>
+</div>
 
 
 	<div class="summarise">	
@@ -110,25 +122,29 @@
 		<div class="container">
 		<div class="row">
 			<div class="col-md-3">
-		<div class="scren">		
+		<div class="scren">	
+		<a class="gallery" data-fancybox="gallery" alt="screenshot 1!" href="assets/img/backg.png">
 			<div class="scren_img" >
 				<img class="img-screen" src="assets/img/my.png">
 				<img class="img-ov" src="assets/img/overlay.png">
 				<div class="color-hover"></div>
 				<span class="screenshot-text">SCREEN SHOT #1</span>
 			</div>
+		</a>
 		<div class="nunc_text">	Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</div>	
 		</div>
 		</div>
 
 		<div class="col-md-3">
 		<div class="scren">	
+			<a class="gallery" data-fancybox="gallery" alt="screenshot 2!" href="assets/img/video.png">
 		<div class="scren_img">
 			<img class="img-screen" src="assets/img/my.png">
 				<img class="img-ov" src="assets/img/overlay.png">
 				<div class="color-hover"></div>
 		<span class="screenshot-text">SCREEN SHOT #2</span>
 		</div>
+	</a>
 			<div class="nunc_text">	Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</div>
 		</div>	
 	</div>
@@ -224,34 +240,79 @@
 			</div>		
 			</div>
 		</div>
+			<div class="second">Слайд 2</div>
+
 	</div>
 
 <!-- 	6 слайд -->
 <div class="q-do-you">
 	<div class="quest_cont">
 	<div class="quest-text">Do you Like this app? </div>
+		<a data-fancybox="gallery" href="#forma">
 	<div class="quest">
-		<a href="#" id="sub" class="sub3" >"DOWNLOAD NOW"</a>
+		<a href="#forma" id="sub3" class="sub3" >"DOWNLOAD NOW"</a>
 	</div>
+		</a>
 </div>
 <!-- 	карта -->
-	<div class="map">
-	  <div class="img_map">
-		<div class="forma">	
-		<form name="forma" method="POST" >
+<div class="contacts">
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=bd99b461-8167-4549-b1f1-cdea2a033153&lang=ru_RU"
+  	type="text/javascript">
+  	</script>
+
+ 	<script type="text/javascript">
+   ymaps.ready(init);
+
+	function init() {
+	 var myMap = new ymaps.Map("map", {
+	   center: [40.776685,-73.91],
+	   zoom: 15
+	   }, {
+	     searchControlProvider: 'yandex#search'
+	      });
+
+	myMap.geoObjects
+	.add(new ymaps.Placemark([40.776685,-73.926139], {
+	    iconCaption: 'Astoria'
+	    }, {
+	      preset: 'islands#greenDotIconWithCaption'
+	       }));
+	               }   
+	</script>
+
+		<div class="forma" id="forma">
+		<form name="forma" class="form" method="POST" action="ajaxForm.php" onsubmit="return validateForm();" >
 			<div class="contact" >Contact </div>
-			<input name="name"type="text" placeholder="Your name" class="textbox" required />
-			<input name="subject" type="text" placeholder="Subject" class="textbox" required />
-			<input name="email" placeholder="Your email" class="textbox" type="email" required />
-			<textarea rows="4" cols="50" name="subject" placeholder="Message" class="message" required></textarea>
-			<button type="submit" name="submit" class="button">Send </button>
+			<input name="name"type="text" placeholder="Your name"  minlength="2" class="textbox name" >
+			<input name="phone" type="tel" placeholder="Phone"  class="textbox phone" >
+			<input name="email" placeholder="Your email" class="textbox email" type="email" >
+			<textarea rows="4" cols="50" name="subject" placeholder="Message" class="message" ></textarea>
+			<button type="submit" name="submit" class="button" >Send </button>
 		</form>
 		</div>
-	</div>
+
+	<div id="map"></div>
+	
+</div>
+
 	<!-- подвал -->
 		<div class="footer">
 		<div class="footer1">Copyright © 2013 | bazinger | All Rights Reserved</div>
 		<div class="footer2"><a href="#" class="link">Terms of Service</a> | <a href="#" class="link">Privacy Policy</a></div>
 	</div>
+
+<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/js/slick-1.8.1/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="assets/js/slick-1.8.1/slick/slick-theme.css">
+<script type="text/javascript" src="assets/js/slick-1.8.1/slick/slick.min.js"></script>
+
+<link rel="stylesheet" href="assets/js/fancybox-master/dist/jquery.fancybox.min.css">
+	<script type="text/javascript" src="assets/js/fancybox-master/dist/jquery.fancybox.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+  
+	<script type="text/javascript" src="assets/js/scripts.js"></script>
+
+	
 </body>
 </html>
