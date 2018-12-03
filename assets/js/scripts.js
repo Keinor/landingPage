@@ -1,54 +1,48 @@
-// var button = document.querySelector('.sub1');
-// button.addEventListener("click",function(e){
-// 	alert("1");
-// 	e.preventDefault();
-
-// });
 $(".phone").mask("+7(999)999-9999");
 
 $("a.gallery").fancybox({
-	prevEffect : 'none',
-	nextEffect : 'none',
-   helpers:  {
+    prevEffect : 'none',
+    nextEffect : 'none',
+    helpers:  {
         title : {
-  type : 'over'
-    }
+            type : 'over'
+        }
     }
 });
 
 $(".sub3").fancybox({
-	beforeShow: function () {
-		$(".fancybox-overlay").appendTo(".forma")
+    beforeShow: function () {
+        $(".fancybox-overlay").appendTo(".forma")
 
     }
 })
 
 $('.form').on("submit", sendForm)
-	function sendForm(e){
-		console.log("Hello");
-			e.preventDefault();
-			var data = $('.form').serialize();
-			console.dir(data);
+function sendForm(e){
+    console.log("Hello");
+    e.preventDefault();
+    var data = $('.form').serialize();
+    console.dir(data);
 
-			$.ajax({
-				url: "assets/js/ajaxForm.php",
-				type: "POST",
-				data: data,
-				success: function(data){
-					console.dir(data);
-					if(data == 'OK')
-						alert("Письмо отправлено");
-					else alert("Error");
-				//$('.form')[0].reset();
-				}
+    $.ajax({
+        url: "form.php",
+        type: "POST",
+        data: data,
+        success: function(data){
+            console.dir(data);
+            if(data == 'OK')
+                alert("Письмо отправлено");
+            else alert("Error");
+            //$('.form')[0].reset();
+        }
 
-			})
-	}
+    })
+}
 
 function validateForm()
 {
-	var name=document.forms["forma"]["name"].value;
-	var phone=document.forms["forma"]["phone"].value;
+    var name=document.forms["forma"]["name"].value;
+    var phone=document.forms["forma"]["phone"].value;
     var email=document.forms["forma"]["email"].value;
 
     if (name.length==0)  {
@@ -57,15 +51,15 @@ function validateForm()
         $('.name').addClass('place');
     }
     if(phone.length==0){
-		var t=document.forms["forma"]["phone"].style.border = "double  red";
-		document.forms["forma"]["phone"].placeholder="*Введите номер";
+        var t=document.forms["forma"]["phone"].style.border = "double  red";
+        document.forms["forma"]["phone"].placeholder="*Введите номер";
         $('.phone').addClass('place');
-		return false;
+        return false;
     }
     var r = email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i);
     if (!r){
         //alert('Уверены что email введен верно?');
-		var r=document.forms["forma"]["email"].style.border = "2px inset  red";
+        var r=document.forms["forma"]["email"].style.border = "2px inset  red";
         document.forms["forma"]["email"].placeholder="Неккоректый email";
         $('.email').addClass('place');
         return false;
@@ -74,11 +68,12 @@ function validateForm()
 }
 
 $('.slider').slick({
-	prevArrow: "<div class='arrow__right'>",
-nextArrow: "<div class='arrow__left'>"       
+    slidesToScroll: 1,
+    prevArrow: "<div class='arrow__right'>",
+    nextArrow: "<div class='arrow__left'>"
 });
 $('.testimonials').slick({
-	dots:true
-	
+    dots:true
+
 })
 
